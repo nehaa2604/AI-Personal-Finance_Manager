@@ -1,1 +1,15 @@
+Date,Category,Amount,Type
+2026-01-01,Salary,30000,Income
+2026-01-02,Food,200,Expense
+2026-01-05,Rent,8000,Expense
+2026-01-10,Travel,500,Expense
 
+2026-02-01,Salary,30000,Income
+2026-02-03,Food,300,Expense
+2026-02-07,Entertainment,700,Expense
+2026-02-15,Rent,8000,Expense
+
+2026-03-01,Salary,30000,Income
+2026-03-04,Food,250,Expense
+2026-03-08,Travel,400,Expense
+2026-03-20,Entertainment,600,Expense
