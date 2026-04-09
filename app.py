@@ -10,6 +10,10 @@ st.set_page_config(page_title="AI Finance Advisor", layout="wide")
 
 st.title("💰 AI Personal Finance Advisor")
 
+st.write(
+    "Track expenses, predict future spending, and get smart financial insights using machine learning."
+)
+
 # Load data
 df = load_data()
 
@@ -83,13 +87,15 @@ st.subheader("🤖 AI Prediction")
 monthly_df = prepare_monthly_data(df)
 
 if len(monthly_df) >= 2:
-    model = train_model(monthly_df)
-    prediction = predict_next(monthly_df, model)
+  model, mae, r2 = train_model(monthly_df)
+prediction = predict_next(monthly_df, model)
 
     st.success(f"Predicted next month expense: ₹{prediction}")
 else:
     st.warning("Not enough data for prediction.")   
 
+st.write(f"📉 Mean Absolute Error: {mae:.2f}")
+st.write(f"📊 R² Score: {r2:.2f}")
 
 st.subheader("💯 Financial Health Score")
 score = calculate_health_score(monthly_df)
