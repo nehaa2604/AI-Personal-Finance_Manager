@@ -80,17 +80,16 @@ def train_model(monthly_df):
     return model, mae, r2
 
 def predict_next(monthly_df, model):
-     last_row = monthly_df.iloc[-1]
+    last_row = monthly_df.iloc[-1]
 
-     input_data = [[
+    input_data = [[
         last_row['Income'],
-        last_row['Savings'],
-        last_row['Expense']
+        last_row['Prev_Expense']
     ]]
 
-     prediction = model.predict(input_data)
+    prediction = model.predict(input_data)
 
-     return round(prediction[0], 2) 
+    return round(prediction[0], 2)
 
 def calculate_health_score(monthly_df):
     latest = monthly_df.iloc[-1]
