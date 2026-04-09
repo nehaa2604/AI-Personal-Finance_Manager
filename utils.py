@@ -61,15 +61,23 @@ def prepare_monthly_data(df):
 
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
+from sklearn.metrics import mean_absolute_error, r2_score
 
 def train_model(monthly_df):
-    X = monthly_df[['Income', 'Savings', 'Prev_Expense']]
+    X = monthly_df[['Income', 'Prev_Expense']]
     y = monthly_df['Expense']
 
-    model = RandomForestRegressor(n_estimators=100, random_state=42)
+    model = RandomForestRegressor(random_state=42)
     model.fit(X, y)
 
-    return model
+    # Predictions on training data
+    y_pred = model.predict(X)
+
+    # Metrics
+    mae = mean_absolute_error(y, y_pred)
+    r2 = r2_score(y, y_pred)
+
+    return model, mae, r2
 
 def predict_next(monthly_df, model):
      last_row = monthly_df.iloc[-1]
