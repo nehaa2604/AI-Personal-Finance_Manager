@@ -90,7 +90,7 @@ if len(monthly_df) >= 2:
   model, mae, r2 = train_model(monthly_df)
 prediction = predict_next(monthly_df, model)
 
-    st.success(f"Predicted next month expense: ₹{prediction}")
+    st.success("Predicted next month expense: ₹{prediction}")
 else:
     st.warning("Not enough data for prediction.")   
 
