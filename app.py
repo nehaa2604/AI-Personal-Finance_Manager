@@ -94,7 +94,6 @@ if len(monthly_df) >= 2:
 else:
     st.warning("Not enough data for prediction.")   
 
-st.write(f"📉 Mean Absolute Error: {mae:.2f}")
 st.write(f"📊 R² Score: {r2:.2f}")
 
 st.subheader("💯 Financial Health Score")
